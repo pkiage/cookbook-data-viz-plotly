@@ -1,6 +1,4 @@
-# Plotly Data Viz Cookbook
-
-Recipes for data visualization using [Plotly](https://plotly.com/).
+# Awesome List
 
 # References
 [Plotly Discrete Color](https://plotly.com/python/discrete-color/)
