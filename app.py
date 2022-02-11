@@ -96,7 +96,7 @@ if selected_graph == plot_options[0]:
 
     st_boxplot_intro()
 
-    box_plot_extra_show_option = st.sidebar.radio(label="use additional plotly box settings:",
+    box_plot_extra_show_option = st.sidebar.radio(label="use additional plotly boxplot settings:",
                                                   options=("no", "yes"), key="box_plot_extra")
     if box_plot_extra_show_option == "no":
 
@@ -137,11 +137,8 @@ if selected_graph == plot_options[1]:
 
     scatterplot_intro()
 
-    scatter_plot_adv_option = st.sidebar.radio(label="use additional plotly box settings:",
+    scatter_plot_adv_option = st.sidebar.radio(label="use additional plotly scatterplot settings:",
                                                options=("no", "yes"), key="scatter_plot_extra_show")
-
-    scatter_plot_animate_option = st.sidebar.radio(label="animate:",
-                                                   options=("no", "yes"), key="scatter_plot_animate")
 
     if scatter_plot_adv_option == "no":
 
@@ -150,6 +147,8 @@ if selected_graph == plot_options[1]:
                                    continous_columns)
 
     if scatter_plot_adv_option == "yes":
+        scatter_plot_animate_option = st.sidebar.radio(label="animate:",
+                                                       options=("no", "yes"), key="scatter_plot_animate")
 
         discrete_axis = st.sidebar.radio(
             "axes with discrete data:",
