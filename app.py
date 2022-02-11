@@ -142,9 +142,6 @@ if selected_graph == plot_options[1]:
 
     scatter_plot_animate_option = st.sidebar.radio(label="animate:",
                                                    options=("no", "yes"), key="scatter_plot_animate")
-    discrete_axis = st.sidebar.radio(
-        "axes with discrete data:",
-        ('x', 'y', 'either/neither'), key='discrete_axes')
 
     if scatter_plot_adv_option == "no":
 
@@ -153,6 +150,10 @@ if selected_graph == plot_options[1]:
                                    continous_columns)
 
     if scatter_plot_adv_option == "yes":
+
+        discrete_axis = st.sidebar.radio(
+            "axes with discrete data:",
+            ('x', 'y', 'either/neither'), key='discrete_axes')
 
         (data_x, data_y, data_on_hover, data_sized) = semiguided_setup_axes_hover_and_size_data(
             df, discrete_columns, continous_columns, discrete_axis)
