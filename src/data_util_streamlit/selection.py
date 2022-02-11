@@ -106,7 +106,7 @@ def specify_axes_value_range_plotted(df, data_x, data_y):
                 "To solve the error below please select at least one value to be in column row values plotted:")
         elif min(df[data_x]) >= max(df[data_x]):
             st.write(
-                'To solve the error below please select more row values from column row values plotted (the data is still be plotted though):')
+                'To solve the error below please select more row values from column row values plotted (the data is still plotted though):')
         (xmin, xmax) = specify_xaxis_value_range_plotted(df, data_x)
     with yrange:
         if df[data_x].empty:
@@ -114,7 +114,7 @@ def specify_axes_value_range_plotted(df, data_x, data_y):
                 "To solve the error below please select at least one value to be in column row values plotted:")
         elif min(df[data_y]) >= max(df[data_y]):
             st.write(
-                'To solve the error below please select more row values from column row values plotted, (the data is still be plotted though):')
+                'To solve the error below please select more row values from column row values plotted, (the data is still plotted though):')
         (ymin, ymax) = specify_yaxis_value_range_plotted(df, data_y)
 
     return (xmin, xmax, ymin, ymax)
