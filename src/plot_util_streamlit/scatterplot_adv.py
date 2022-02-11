@@ -3,7 +3,7 @@ import streamlit as st
 
 import sys
 
-from pandas.api.types import is_float_dtype
+from pandas.api.types import is_numeric_dtype
 
 
 def import_utils():
@@ -105,7 +105,7 @@ def st_adv_scatterplot(df,
         logx_settingsk,
         logy_settingsk)
 
-    if is_float_dtype(df[data_x]):
+    if is_numeric_dtype(df[data_x]) and is_numeric_dtype(df[data_y]):
         (trendline_settings,
          trendline_scope_settings) = scatterplot_trend_settings(
             trendline_settingsk,
