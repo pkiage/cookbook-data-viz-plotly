@@ -3,7 +3,6 @@ import streamlit as st
 
 import plotly.express as px
 
-from pandas.api.types import is_float_dtype, is_numeric_dtype
 
 # IMPORT
 # datasets import
@@ -31,7 +30,8 @@ from src.format_util_streamlit.axes import (update_axes_visibility)
 
 from src.data_util_streamlit.selection import (
     animated_data_setup,
-    semiguided_setup_axes_hover_and_size_data)
+    semiguided_setup_axes_hover_and_size_data,
+    filter_row_values_of_selected_column)
 
 
 # CREATE FIG & TEXT
@@ -53,7 +53,11 @@ from src.plot_util_streamlit.scatterplot_basic import (st_basic_scatterplot)
 
 
 from src.plot_util_streamlit.scatterplot_adv import (
-    st_adv_scatterplot,
+    st_adv_scatterplot, adv_scatterplot_settings
+)
+
+from src.plot_util_plotly.scatterplot import (
+    adv_animated_scatterplot_without_trend,
 )
 
 
@@ -170,9 +174,32 @@ if selected_graph == plot_options[1]:
                                      "trendline_scope_settingsk")
 
         if scatter_plot_animate_option == "yes":
-            2
+
+            filtered_df = filter_row_values_of_selected_column(df)
+
+            (animation_frame_settings, animation_group_settings, xmin, xmax,
+             ymin, ymax) = animated_data_setup(filtered_df,  data_x,  data_y)
+
+            (
+                logx_settings,
+                logy_settings) = adv_scatterplot_settings(
+                "logx_settingska",
+                "logy_settingska")
+
+            fig = adv_animated_scatterplot_without_trend(df,
+                                                         data_x,
+                                                         data_y,
+                                                         data_on_hover,
+                                                         data_sized,
+                                                         data_colored,
+                                                         plot_color_scale,
+                                                         logx_settings,
+                                                         logy_settings,
+                                                         animation_frame_settings,
+                                                         animation_group_settings)
         # DISPLAY FIG
         # general fig settings
+
 update_title_legend_intercept(fig)
 plain_white_background(fig)
 update_axes_visibility(fig)
