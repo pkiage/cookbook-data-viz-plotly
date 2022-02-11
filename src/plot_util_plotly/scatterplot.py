@@ -111,16 +111,16 @@ def adv_animated_scatterplot_without_trend(df,
                           animation_group=animation_group_settings
                           )
     else:
-        px.scatter(data_frame=df,
-                   x=data_x,
-                   y=data_y,
-                   size=data_sized,
-                   color=data_colored,
-                   hover_data=data_on_hover,
-                   color_discrete_sequence=getattr(
-                       px.colors.qualitative, plot_color_scale),
-                   log_x=logx_settings,
-                   log_y=logy_settings,
-                   animation_frame=animation_frame_settings,
-                   animation_group=animation_group_settings
-                   )
+        return px.scatter(data_frame=df,
+                          x=data_x,
+                          y=data_y,
+                          size=data_sized,
+                          color=data_colored,
+                          hover_data=data_on_hover,
+                          color_discrete_sequence=getattr(
+                              px.colors.qualitative, plot_color_scale),
+                          log_x=logx_settings,
+                          log_y=logy_settings,
+                          animation_frame=animation_frame_settings,
+                          animation_group=animation_group_settings
+                          )
