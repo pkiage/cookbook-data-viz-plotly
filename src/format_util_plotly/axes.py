@@ -23,3 +23,23 @@ def hide_yaxes_ticks(fig):
 def show_yaxes_ticks(fig):
     fig.update_yaxes(
         showticklabels=True)
+
+
+def hide_xaxes(fig):
+    fig.update_xaxes(
+        visible=False)
+
+
+def show_xaxes(fig):
+    fig.update_xaxes(
+        visible=True)
+
+
+def hide_xaxes_ticks(fig):
+    fig.update_xaxes(
+        showticklabels=False)
+
+
+def show_xaxes_ticks(fig):
+    fig.update_xaxes(
+        showticklabels=True)
