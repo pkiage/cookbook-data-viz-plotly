@@ -36,7 +36,7 @@ def adv_scatterplot_without_trend(df,
                                   plot_color_scale,
                                   logx_settings,
                                   logy_settings):
-    if is_numeric_dtype(df[data_x]):
+    if is_numeric_dtype(df[data_colored]):
         return px.scatter(data_frame=df,
                           x=data_x,
                           y=data_y,
@@ -97,7 +97,7 @@ def adv_animated_scatterplot_without_trend(df,
                                            logy_settings,
                                            animation_frame_settings,
                                            animation_group_settings):
-    if is_numeric_dtype(df[data_x]):
+    if is_numeric_dtype(df[data_colored]):
         return px.scatter(data_frame=df,
                           x=data_x,
                           y=data_y,
