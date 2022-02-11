@@ -84,13 +84,13 @@ def specify_xaxis_value_range_plotted(df, data_x):
 
 def specify_yaxis_value_range_plotted(df, data_y):
     if df[data_y].dtype == "object":
-        #ymin, ymax
+        # ymin, ymax
         return st.select_slider(
             label="select y range", options=df[data_y].unique(),
             value=(min(df[data_y]),
                    max(df[data_y])), key="yrange")
     else:
-        #ymin, ymax
+        # ymin, ymax
         return st.slider(
             label='select y range',
             min_value=min(df[data_y]), max_value=max(df[data_y]),
@@ -101,9 +101,20 @@ def specify_yaxis_value_range_plotted(df, data_y):
 def specify_axes_value_range_plotted(df, data_x, data_y):
     xrange, yrange = st.columns(2)
     with xrange:
+        if df[data_x].empty:
+            st.write(
+                "To solve the error below please select at least one value to be in column row values plotted:")
+        elif min(df[data_x]) >= max(df[data_x]):
+            st.write(
+                'To solve the error below please select more row values from column row values plotted (the data is still be plotted though):')
         (xmin, xmax) = specify_xaxis_value_range_plotted(df, data_x)
-
     with yrange:
+        if df[data_x].empty:
+            st.write(
+                "To solve the error below please select at least one value to be in column row values plotted:")
+        elif min(df[data_y]) >= max(df[data_y]):
+            st.write(
+                'To solve the error below please select more row values from column row values plotted, (the data is still be plotted though):')
         (ymin, ymax) = specify_yaxis_value_range_plotted(df, data_y)
 
     return (xmin, xmax, ymin, ymax)
