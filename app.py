@@ -205,4 +205,4 @@ plain_white_background(fig)
 update_axes_visibility(fig)
 
 # display fig
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
