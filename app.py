@@ -201,7 +201,7 @@ if selected_graph == plot_options[1]:
         # general fig settings
 
 update_title_legend_intercept(fig)
-plain_white_background(fig)
+# plain_white_background(fig)
 update_axes_visibility(fig)
 
 # display fig
