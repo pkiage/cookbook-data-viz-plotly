@@ -1,0 +1,12 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "cookbook-data-viz-plotly"
+version = "0.0.1"
+description = "Explore plotly scatter plot and box plot"
+authors = ["pkiage paul.r.kiage@gmail.com"]
